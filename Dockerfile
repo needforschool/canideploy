@@ -2,14 +2,7 @@ FROM node:16 AS builder
 
 WORKDIR /app
 
-ARG GITHUB_TOKEN
-ENV GITHUB_TOKEN=${GITHUB_TOKEN}
-
-COPY ./.npmrc ./
-COPY ./package.json ./
-
 RUN npm install
-RUN rm -f .npmrc
 
 COPY . .
 
